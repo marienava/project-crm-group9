@@ -12,17 +12,6 @@ public class UploadPage {
     }
 
 
-    @FindBy(xpath = "//span[.='Message']")
-    //@FindBy(xpath = "//span[@id='feed-add-post-form-tab-message']")
-    public WebElement messageTab;
-
-    //@FindBy(xpath = "//iframe[@class='bx-editor-iframe']")
-    //public WebElement iframe;
-
-
-    @FindBy(xpath = "//span[@id='bx-b-uploadfile-blogPostForm']")
-    public WebElement uploadTag;
-
     @FindBy(xpath = "//input[@name='bxu_files[]']")
     public WebElement uploadFileImage;
 
