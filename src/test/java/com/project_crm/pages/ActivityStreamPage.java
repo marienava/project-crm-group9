@@ -1,6 +1,7 @@
 package com.project_crm.pages;
 
 import com.project_crm.utilities.Driver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -99,9 +100,15 @@ public class ActivityStreamPage {
     @FindBy(xpath = "//span[.='Send message …']")
     public WebElement sendMessageWindow;
 
-@FindBy(xpath = "//iframe[@class='bx-editor-iframe']")
+    @FindBy(xpath = "//iframe[@class='bx-editor-iframe']")
     public WebElement messageIframe;
 
-@FindBy(xpath = "//body[@contenteditable='true']")
+    @FindBy(xpath = "//body[@contenteditable='true']")
     public WebElement messageWritingWindow;
+
+    public void insertOption(String option) {
+       Driver.getDriver().findElement(By.xpath("//span[@title=' "+ option +" ']")).click();
+
+    }
+
 }
