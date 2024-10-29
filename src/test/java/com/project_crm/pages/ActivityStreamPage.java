@@ -86,4 +86,22 @@ public class ActivityStreamPage {
 
     @FindBy(xpath = "//span[@class='feed-add-info-text']")
     public WebElement fileErrorMessage;
+
+    @FindBy(xpath = "//div[@id='log_internal_container']/div[2]/div[1]/div/div[1]/div[5]/div/a")
+    public WebElement topMessageMoreTab;
+
+    @FindBy(xpath = "//span[.='Delete']/span[2]")
+    public WebElement deleteMessageOptionTab;
+
+    @FindBy(xpath = "//*[@id=\"blg-post-1066\"]/div/span/span[2]")
+    public WebElement deletionConfirmationMessage;
+
+    @FindBy(xpath = "//span[.='Send message …']")
+    public WebElement sendMessageWindow;
+
+@FindBy(xpath = "//iframe[@class='bx-editor-iframe']")
+    public WebElement messageIframe;
+
+@FindBy(xpath = "//body[@contenteditable='true']")
+    public WebElement messageWritingWindow;
 }

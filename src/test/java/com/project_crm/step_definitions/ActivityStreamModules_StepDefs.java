@@ -10,6 +10,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -71,7 +72,7 @@ public class ActivityStreamModules_StepDefs {
     }
 
 
-    @Given("the I'm logged in as an hr")
+    @Given("I am logged in as hr")
     public void the_i_m_logged_in_as_an_hr() {
         login.login(ConfigurationReader.getProperty("hr_username"), ConfigurationReader.getProperty("password"));
     }
@@ -108,7 +109,7 @@ public class ActivityStreamModules_StepDefs {
         BrowserUtils.waitFor(3);
     }
 
-    @Then("I should se the file on top of the feed")
+    @Then("I should see the file on top of the feed")
     public void i_should_se_the_file_on_top_of_the_feed() {
        // System.out.println(" message "+ activity.topMessage.getText());
        // System.out.println("message2 "+ activity.topMessage2.getText());
@@ -122,4 +123,59 @@ public class ActivityStreamModules_StepDefs {
         Assert.assertTrue(activity.topMessage.getText().contains(ConfigurationReader.getProperty("fileName")));
 
     }
+
+
+    @And("choose file from the project")
+    public void choose_File_From_The_Project() {
+        // Get the absolute path of the file in your project
+        String filePath = new File("testFile.txt").getAbsolutePath();
+        // Send the file path to the file input element
+        BrowserUtils.waitFor(3);
+        // File upload = new File("sampleFile.jpeg");
+        activity.UploadFilesAndImages.sendKeys(filePath);
+    }
+
+    @Then("I see uploaded file")
+    public void i_See_Uploaded_File() {
+        System.out.println(activity.topMessage.getText());
+    }
+
+
+    @When("I click on More tab on my message")
+    public void i_click_on_more_tab_on_my_message() {
+        System.out.println("Before"+ activity.topMessage2.getText());
+     activity.topMessageMoreTab.click();
+    }
+    @When("select Delete option")
+    public void select_delete_option() {
+       activity.deleteMessageOptionTab.click();
+    }
+    @Then("my message should be deleted from the feed")
+    public void my_message_should_be_deleted_from_the_feed() {
+        System.out.println(activity.deletionConfirmationMessage.getText());
+    }
+
+    @And("confirm that I want to delete the message")
+    public void confirm_That_I_Want_To_Delete_The_Message() {
+        Alert alert = Driver.getDriver().switchTo().alert();
+        alert.accept();
+    }
+
+
+    @When("I click on Send message...")
+    public void I_click_on_Send_message() {
+      activity.sendMessageWindow.click();
+    }
+    @When("write message")
+    public void write_message() {
+      Driver.getDriver().switchTo().frame(activity.messageIframe);
+      activity.messageWritingWindow.sendKeys("testing message sending and deleting");
+      Driver.getDriver().switchTo().defaultContent();
+
+    }
+    @Then("I should see the message on top of the feed")
+    public void i_should_see_the_message_on_top_of_the_feed() {
+   Assert.assertTrue(activity.topMessage2.getText().contains("testing message"));
+    }
+
 }
