@@ -71,7 +71,5 @@ public class PicFileUploadStepDefs {
 
     }
 
-    @And("user clicks {string} button")
-    public void userClicksButton(String arg0) {
-    }
+
 }
