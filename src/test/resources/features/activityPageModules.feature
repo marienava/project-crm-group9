@@ -42,10 +42,11 @@ Feature: Activity stream page options/modules visible
     Given I am logged in as hr
     When I click on More tab
     And select File option
-    And click on Upload file
+    And click on "Upload file"
     And choose file from the project
     And click send
     Then I see uploaded file
+    And click on "Link"
 
     Scenario: User can send a simple message
       Given I am logged in as hr

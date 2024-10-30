@@ -178,4 +178,9 @@ public class ActivityStreamModules_StepDefs {
    Assert.assertTrue(activity.topMessage2.getText().contains("testing message"));
     }
 
+    @And("click on {string}")
+    public void clickOn(String option) {
+        // activity.insertOption(option);
+        Driver.getDriver().findElement(By.xpath("//span[@title='"+ option +"']")).click();
+    }
 }
