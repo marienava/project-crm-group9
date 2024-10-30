@@ -14,20 +14,21 @@ public class DrivePage_StepDefinitions {
 
     DrivePage drivePage = new DrivePage();
 
-    @Given("user clicks on {string} menu")
-    public void user_clicks_on_menu(String string) {
-        //driveMenu.click();
-
+    @Given("user clicks on Drive menu button")
+    public void user_clicks_on_drive_menu_button() {
+        drivePage.driveMenuBtn.click();
+        BrowserUtils.waitFor(2);
     }
 
     @Then("user sees following modules:")
-    public void user_sees_following_modules(List<String> dataTable) {
+    public void user_sees_following_modules(List<String> driveMenuList) {
         BrowserUtils.waitFor(2);
-//        List<String> actualDriveModules = new ArrayList<>();
-//        for (WebElement each : drivePage.driveModules) {
-//            actualDriveModules.add(each.getText());
-//            Assert.assertTrue(each.isDisplayed());
-//        }
+        List<String> actualDriveMenuModules = new ArrayList<>();
+        for (WebElement each : drivePage.driveMenuList) {
+            actualDriveMenuModules.add(each.getText());
+            Assert.assertTrue(each.isDisplayed());
+        }
+        Assert.assertEquals(driveMenuList, actualDriveMenuModules);
 
 
     }
