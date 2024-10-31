@@ -4,7 +4,7 @@ Feature: Drive page modules accessible/visible
   @kate
   Scenario Outline: User sees all modules on the Drive page
     Given the user logged in as "<user>"
-    And user clicks on "Drive" menu
+    And user clicks on Drive menu button
     Then user sees following modules:
       | My Drive                   |
       | All Documents              |
