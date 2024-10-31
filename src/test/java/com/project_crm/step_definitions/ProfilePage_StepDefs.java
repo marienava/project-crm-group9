@@ -21,7 +21,7 @@ public class ProfilePage_StepDefs {
     }
     @Then("the users sees following options on my profile page")
     public void the_users_sees_following_options_on_my_profile_page(io.cucumber.datatable.DataTable dataTable) {
-
+        
     }
     @Then("sees the email address under the General Tab")
     public void sees_the_email_address_under_the_general_tab() {
