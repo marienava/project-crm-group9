@@ -17,7 +17,7 @@ public class LogoutStepDefs {
     @And("verify user sees following modules:")
     public void verifyUserSeesFollowingModules(List<String> expectedModules) {
 
-        List<String> actualModules = new ArrayList<String>();
+        List<String> actualModules = new ArrayList<>();
         for (WebElement each : logout.listOfModules) {
             actualModules.add(each.getText());
         }
