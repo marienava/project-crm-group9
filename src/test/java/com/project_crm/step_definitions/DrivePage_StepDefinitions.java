@@ -26,9 +26,10 @@ public class DrivePage_StepDefinitions {
         List<String> actualDriveMenuModules = new ArrayList<>();
         for (WebElement each : drivePage.driveMenuList) {
             actualDriveMenuModules.add(each.getText());
+            System.out.println(each.getText()); // double-checking if all the modules are there
             Assert.assertTrue(each.isDisplayed());
         }
-        Assert.assertEquals(driveMenuList, actualDriveMenuModules);
+        Assert.assertEquals(actualDriveMenuModules,driveMenuList);
 
 
     }
