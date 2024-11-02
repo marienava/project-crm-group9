@@ -18,7 +18,7 @@ public class UploadPage {
     @FindBy(xpath = "//button[@id='blog-submit-button-save']")
     public WebElement sendButton;
 
-    @FindBy(xpath = "//div[@class='feed-com-files diskuf-files-entity']//a")
+    @FindBy(xpath = "(//div[@class='feed-com-files diskuf-files-entity']//a)[1]")
     public WebElement uploadedFile;
 
     @FindBy(xpath = "//div[@class='feed-com-files diskuf-files-entity']//img")
